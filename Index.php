@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COURS PHP</title>
+    <title>Cours php</title>
 </head>
 <body>
     <form>
+
         <label>Nom</label> : <input type="text" name="nom" />
         <label>Post-nom</label> : <input type="text" name="pst nom" /><br>
         Prenom : <input type= "text" name="prenom"> <br>
