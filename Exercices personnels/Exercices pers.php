@@ -1,4 +1,78 @@
-<!DOCTYPE html>
+<?php
+  /*****************************************
+  *  Constantes et variables
+  *****************************************/
+  define('LOGIN','Elisée');  // Login correct
+  define('PASSWORD','code');  // Mot de passe correct
+  $message = '';      // Message à afficher à l'utilisateur
+ 
+  /*****************************************
+  *  Vérification du formulaire
+  *****************************************/
+  // Si le tableau $_POST existe alors le formulaire a été envoyé
+  if(!empty($_POST))
+  {
+    // Le login est-il rempli ?
+    if(empty($_POST['login']))
+    {
+      $message = 'Veuillez indiquer votre login svp !';
+    }
+      // Le mot de passe est-il rempli ?
+      elseif(empty($_POST['motDePasse']))
+    {
+      $message = 'Veuillez indiquer votre mot de passe svp !';
+    }
+      // Le login est-il correct ?
+      elseif($_POST['login'] !== LOGIN)
+    {
+      $message = 'Votre login est faux !';
+    }
+      // Le mot de passe est-il correct ?
+      elseif($_POST['motDePasse'] !== PASSWORD)
+    {
+      $message = 'Votre mot de passe est faux !';
+    }
+      else
+    {
+      // L'identification a réussi
+      $message = 'Bienvenue '. LOGIN .' !';
+    }
+  }
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+  <head>
+    <title>Formulaire d'identification</title>
+  </head>
+  <body>
+    <?php if(!empty($message)) : ?>
+      <p><?php echo $message; ?></p>
+    <?php endif; ?>
+    <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="post">
+      <fieldset>
+        <legend>Identifiant</legend>
+          <p>
+             <label for="login">Login :</label> 
+            <input type="text" name="login" id="login" value="<?php if(!empty($_POST['login'])) { echo htmlspecialchars($_POST['login'], ENT_QUOTES); } ?>" />
+          </p>
+          <p>
+            <label for="password">Mot de passe :</label> 
+            <input type="password" name="motDePasse" id="password" value="" /> 
+            <input type="submit" name="submit" value="Identification" />
+          </p>
+      </fieldset>
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+<!-- un autre exemple du code -->
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Elisée - Exercices</title>
@@ -131,22 +205,16 @@
           <a class="btn-item" href="https://www.w3docs.com/learn-php/php-comments.html">Apprendre du PHP</a>
         </div>
       </div>
-      <form method="" action="/">
+      <form method="GET" action="tests.php">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
           <h2>Formulaire d'identité</h2>
         </div>
         <div class="info">
-          Nom<input class="fname" type="text" name="name">
-          Post-nom<input class="lname" type="text" name="name">
-          Prénom<input class="nname" type="text" name="name">
-          Matricule<input class="mat" type="text" name="name">
-          Sexe<select>
-                <option value="Masculin">Masculin</option>
-                <option value="Feminin">Feminin</option>
-            </select>
-          Promotion<input class="promotion" type="text" name="prom">
-          Adresse mail<input class="mail" type="text" name="mail">
+          Nom<input value="" type="text" name="name">
+          Post-nom<input value="" type="text" name="lastname">
+          Prénom<input value="" type="text" name="nickname">
+          Adresse mail<input value="" type="text" name="mail">
         </div>
         <div class="checkbox">
           <input type="checkbox" name="checkbox"><span>Je certifie que ces informations sont vraies et sincères</span>
@@ -155,4 +223,4 @@
       </form>
     </div>
   </body>
-</html>
+</html> -->

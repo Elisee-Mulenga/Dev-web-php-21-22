@@ -17,17 +17,17 @@
               <a class="btn-item" href="https://www.w3docs.com/learn-php/php-syntax.html">Apprendre du PHP</a>
             </div>
         </div>
-      <form method="post" action="controllers/Controller.php">
+      <form method="get" action="controllers/Controller.php">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
-          <h2>Formulaire d'identité</h2>
+          <h2>Formulaire d'identité</h2> 
         </div>
         <div class="info">
           Nom<input class="fname" type="text" name="name">
           Post-nom<input class="lname" type="text" name="lastname">
-          Prénom<input class="nname" type="text" name="nickname">
+          Prénom<input class="nname" type="text" name="nickname"> 
           Matricule<input class="mat" type="text" name="idname">
-          Sexe<select>
+          Sexe<select name="sxname">
                 <option value="Masculin">Masculin</option>
                 <option value="Feminin">Feminin</option>
             </select>
